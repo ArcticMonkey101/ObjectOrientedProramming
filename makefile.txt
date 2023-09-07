@@ -1,0 +1,13 @@
+CC = g++
+CFLAG =
+
+
+main1.exe : main.o grading.o
+    $(CC) $(CFLAG) -o main1.exe main.o grading.o
+
+
+main.o : main.cpp
+    $(CC) $(CFLAG) -c main.cpp
+
+grading.o : grading.cpp
+    $(CC) $(CFLAG) -c grading.cpp
