@@ -23,6 +23,6 @@ class Creatures {
         const std::string& common_name)
         :
        scientific_name(scientific_name)
-       common_name(common_name),
-       ) 
-       f
+       common_name(common_name)
+      {}
+};
