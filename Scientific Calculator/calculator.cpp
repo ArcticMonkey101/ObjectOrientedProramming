@@ -1,28 +1,35 @@
-#include "Calculator.h"
+#include "calculator.h"
 
-Calculator::Calculator() {
-    // Constructor implementation if needed
-}
-
-double Calculator::add(double a, double b) {
+template <typename T>
+T Calculator<T>::add(T a, T b) {
     return a + b;
 }
 
-double Calculator::subtract(double a, double b) {
+template <typename T>
+T Calculator<T>::subtract(T a, T b) {
     return a - b;
 }
 
-double Calculator::multiply(double a, double b) {
+template <typename T>
+T Calculator<T>::multiply(T a, T b) {
     return a * b;
 }
 
-double Calculator::divide(double a, double b) {
-    if (b == 0) {
+template <typename T>
+T Calculator<T>::divide(T a, T b) {
+    if (b != 0) {
+        return a / b;
+    } else {
+        // Handle division by zero error
         throw std::runtime_error("Division by zero");
     }
-    return a / b;
 }
 
-double Calculator::percentage(double a, double percentage) {
-    return (a * percentage) / 100.0;
+template <typename T>
+T Calculator<T>::percentage(T a, T b) {
+    return (a * b) / 100;
 }
+
+// Explicit instantiation for commonly used data types
+template class Calculator<int>;
+template class Calculator<double>;
