@@ -1,4 +1,4 @@
-#include "MathFunctions.h"
+#include "math_functions.h"
 #include <cmath>
 
 double squareRoot(double x) {
@@ -10,4 +10,8 @@ double squareRoot(double x) {
 
 double power(double base, double exponent) {
     return std::pow(base, exponent);
+}
+
+double square(double x) {
+    return std::square(x);
 }
