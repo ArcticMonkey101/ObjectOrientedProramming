@@ -1,4 +1,5 @@
 #include "calculator.h"
+#include <stdexcept>
 
 template <typename T>
 T Calculator<T>::add(T a, T b) {
