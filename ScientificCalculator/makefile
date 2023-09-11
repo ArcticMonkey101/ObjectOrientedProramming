@@ -1,16 +1,29 @@
 CC = g++
-CFLAGS = -std=c++11
+CFLAGS = 
 
-all: calculator
+# List of source files
+SOURCES = main.cpp calculator.cpp log_functions.cpp math_functions.cpp
 
-calculator: main.o calculator.o
-    $(CC) $(CFLAGS) -o calculator main.o calculator.o
+# List of header files
+HEADERS = calculator.h log_functions.h math_functions.h
 
-main.o: main.cpp calculator.h
-    $(CC) $(CFLAGS) -c main.cpp
+# Generate object file names from source file names
+OBJECTS = $(SOURCES:.cpp=.o)
 
-calculator.o: calculator.cpp calculator.h
-    $(CC) $(CFLAGS) -c calculator.cpp
+# Output executable name
+EXECUTABLE = main.exe
 
+# Default target to build the executable
+all: $(EXECUTABLE)
+
+# Link object files to create the executable
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $@ $(OBJECTS)
+
+# Compile source files into object files
+%.o: %.cpp $(HEADERS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# Clean up intermediate files and the executable
 clean:
-    rm -rf *.o calculator
+	rm -f $(EXECUTABLE) $(OBJECTS)
