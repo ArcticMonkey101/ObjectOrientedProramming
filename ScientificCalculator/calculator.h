@@ -9,6 +9,7 @@ public:
     T multiply(T a, T b);
     T divide(T a, T b);
     T percentage(T a, T b);
+
 };
 
-#endif // CALCULATOR_H
+#endif

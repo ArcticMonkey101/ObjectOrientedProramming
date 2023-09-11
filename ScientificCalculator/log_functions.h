@@ -4,11 +4,11 @@
 #include <stdexcept>
 #include <cmath>
 
-template <typename T>
+
 class LogFunctions {
 public:
-    T ln(T x);
-    T log(T a, T base);
+    double ln(double x);
+    double log(double a, double base);
 };
 
 #endif // LOG_FUNCTIONS_H

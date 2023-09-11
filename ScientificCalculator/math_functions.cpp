@@ -2,20 +2,19 @@
 #include <cmath>
 #include <stdexcept>
 
-template <typename T>
-T squareRoot(T x) {
+double MathFunctions :: squareRoot(double x) {
     if (x < 0) {
         throw std::runtime_error("Square root of a negative number");
     }
-    return std::sqrt(static_cast<double>(x));
+    return std::sqrt(x);
 }
 
-template <typename T>
-T power(T base, T exponent) {
-    return std::pow(static_cast<double>(base), static_cast<double>(exponent));
+double MathFunctions :: power(double base, double exponent) {
+    return std::pow(base, exponent);
 }
 
-template <typename T>
-T square(T x) {
+double MathFunctions :: square(double x) {
     return x * x;
 }
+
+

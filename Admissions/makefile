@@ -1,17 +1,29 @@
 CC = g++
-CFLAG = 
+CFLAGS = 
 
+# List of source files
+SOURCES = main.cpp calculator.cpp log_functions.cpp math_functions.cpp
 
-main.exe : main.o admissions.o
-	$(CC) $(CFLAG) -o main.exe main.o admissions.o
+# List of header files
+HEADERS = calculator.h log_functions.h math_functions.h
 
+# Generate object file names from source file names
+OBJECTS = $(SOURCES:.cpp=.o)
 
-main.o : main.cpp
-	$(CC) $(CFLAG) -c main.cpp
+# Output executable name
+EXECUTABLE = main.exe
 
-admissions.o : admissions.cpp
-	$(CC) $(CFLAG) -c admissions.cpp
+# Default target to build the executable
+all: $(EXECUTABLE)
 
-clean :
-	rm -f main.exe *o
+# Link object files to create the executable
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $@ $(OBJECTS)
 
+# Compile source files into object files
+%.o: %.cpp $(HEADERS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# Clean up intermediate files and the executable
+clean:
+	rm -f $(EXECUTABLE) $(OBJECTS)
