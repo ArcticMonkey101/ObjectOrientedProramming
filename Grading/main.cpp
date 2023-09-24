@@ -1,8 +1,7 @@
 #include "grading.h"
-
 #include <iostream>
 #include <limits>
-
+#include <vector>
 
 int main() {
     std::string name;
@@ -18,12 +17,17 @@ int main() {
     std::cout << "Enter current term: ";
     std::getline(std::cin, currentTerm);
 
-    Student student(name, currentTerm);
+    // Dynamically allocate memory for the Student object
+    Student* student = new Student(name, currentTerm);
 
     std::cout << "Enter number of subjects: ";
     std::cin >> numSubjects;
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    // Dynamically allocate memory for subjects and grades using a vector
+    std::vector<std::string> subjectNames;
+    std::vector<double> subjectGrades;
 
     for (int i = 0; i < numSubjects; ++i) {
         std::string subjectName;
@@ -35,13 +39,22 @@ int main() {
 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-        student.addGrade(subjectName, grade);
+        subjectNames.push_back(subjectName);
+        subjectGrades.push_back(grade);
+    }
+
+    // Pass the dynamically allocated subject data to the Student object
+    for (size_t i = 0; i < subjectNames.size(); ++i) {
+        student->addGrade(subjectNames[i], subjectGrades[i]);
     }
 
     std::cout << "\n---------------------------------------------------\n";
     std::cout << "\nGrade Report for Term" << currentTerm << ":\n\n";
-    student.displayReport();
+    student->displayReport();
     std::cout << "\n---------------------------------------------------\n";
+
+    // Clean up: delete dynamically allocated objects
+    delete student;
 
     return 0;
 }
