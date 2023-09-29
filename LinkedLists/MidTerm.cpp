@@ -86,8 +86,10 @@ public:
 int main() {
     List originalList;
     originalList.push_back(1);
+    originalList.push_back(1);
     originalList.push_back(2);
     originalList.push_back(3);
+    originalList.push_back(5);
 
     std::cout << "Original List: ";
     originalList.display();
@@ -99,7 +101,7 @@ int main() {
     copyList.display();
 
     // Modify the original list
-    originalList.push_back(4);
+    originalList.push_back(8);
 
     std::cout << "Original List after modification: ";
     originalList.display();
