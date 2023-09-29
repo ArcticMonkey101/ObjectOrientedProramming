@@ -1,19 +1,29 @@
 CC = g++
-CFLAGS = -Wall -std=c++11
-TARGET = myprogram
-SRCDIR = src
-OBJDIR = obj
+CFLAGS = 
 
-SOURCES = $(wildcard $(SRCDIR)/*.cpp)
-OBJECTS = $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SOURCES))
+# List of source files
+SOURCES = main.cpp List.cpp Node.cpp
 
-$(TARGET): $(OBJECTS)
-    $(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+# List of header files
+HEADERS = List.h Node.h
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-    $(CC) $(CFLAGS) -c $< -o $@
+# Generate object file names from source file names
+OBJECTS = $(SOURCES:.cpp=.o)
 
+# Output executable name
+EXECUTABLE = main.exe
+
+# Default target to build the executable
+all: $(EXECUTABLE)
+
+# Link object files to create the executable
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $@ $(OBJECTS)
+
+# Compile source files into object files
+%.o: %.cpp $(HEADERS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# Clean up intermediate files and the executable
 clean:
-    rm -f $(OBJDIR)/*.o $(TARGET)
-
-.PHONY: clean
+	rm -f $(EXECUTABLE) $(OBJECTS)

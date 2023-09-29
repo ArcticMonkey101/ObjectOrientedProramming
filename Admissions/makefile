@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = 
+CFLAGS = -Wall -std=c++11
 
 # List of source files
 SOURCES = main.cpp calculator.cpp log_functions.cpp math_functions.cpp
@@ -27,3 +27,4 @@ $(EXECUTABLE): $(OBJECTS)
 # Clean up intermediate files and the executable
 clean:
 	rm -f $(EXECUTABLE) $(OBJECTS)
+
