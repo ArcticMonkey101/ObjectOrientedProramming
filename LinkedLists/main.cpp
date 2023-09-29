@@ -3,21 +3,23 @@
 
 int main() {
     List originalList;
-    originalList.push_back("Apple");
-    originalList.push_back("Banana");
-    originalList.push_back("Cherry");
+    originalList.push_back(1);
+    originalList.push_back(1);
+    originalList.push_back(2);
+    originalList.push_back(3);
+    originalList.push_back(5);
 
     std::cout << "Original List: ";
     originalList.display();
 
-    // Create a copy of the list using copy constructor
+    // Create a copy of the list
     List copyList = originalList;
 
     std::cout << "Copied List: ";
     copyList.display();
 
     // Modify the original list
-    originalList.push_back("Date");
+    originalList.push_back(8);
 
     std::cout << "Original List after modification: ";
     originalList.display();
@@ -25,7 +27,6 @@ int main() {
     std::cout << "Copied List after modification of original: ";
     copyList.display();
 
-    // Create a new list using assignment operator
     List assignedList;
     assignedList = originalList;
 

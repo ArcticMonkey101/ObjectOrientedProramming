@@ -1,5 +1,5 @@
-#include "list.h"
-#include "node.h"
+#include "List.h"
+#include "Node.h"
 #include <iostream>
 
 // Constructor
@@ -20,10 +20,10 @@ List& List::operator=(const List& other) {
         return *this; // Self-assignment, no need to copy
     }
 
-    // Clear the current list
+    // Clear current list
     clear();
 
-    // Copy elements from the other list
+    // Copy elements from other list
     Node* current = other.head;
     while (current != nullptr) {
         push_back(current->data);
@@ -38,8 +38,8 @@ List::~List() {
     clear();
 }
 
-// Add a new element to the end of the list
-void List::push_back(const std::string& value) {
+// New element added to the end of the list
+void List::push_back(int value) {
     Node* newNode = new Node(value);
     if (!head) {
         head = newNode;
@@ -52,7 +52,7 @@ void List::push_back(const std::string& value) {
     }
 }
 
-// Clear the list and free memory
+// Clear the list to free memory
 void List::clear() {
     while (head) {
         Node* temp = head;
@@ -70,3 +70,4 @@ void List::display() {
     }
     std::cout << std::endl;
 }
+

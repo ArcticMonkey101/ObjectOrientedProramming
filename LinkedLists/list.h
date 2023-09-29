@@ -1,9 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 
-#include <string>
-
-class Node;
+#include "Node.h"
 
 class List {
 private:
@@ -15,7 +13,7 @@ public:
     List& operator=(const List& other);
     ~List();
 
-    void push_back(const std::string& value);
+    void push_back(int value);
     void clear();
     void display();
 };

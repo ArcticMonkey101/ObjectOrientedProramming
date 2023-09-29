@@ -1,3 +1,3 @@
 #include "node.h"
 
-Node::Node(const std::string& value) : data(value), next(nullptr) {}
+Node::Node(int value) : data(value), next(nullptr) {}

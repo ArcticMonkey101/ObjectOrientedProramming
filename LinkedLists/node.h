@@ -1,14 +1,12 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include <string>
-
 class Node {
 public:
-    std::string data;
+    int data;
     Node* next;
 
-    Node(const std::string& value);
+    Node(int value);
 };
 
 #endif
