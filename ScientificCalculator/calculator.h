@@ -1,6 +1,9 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
+#include <stdexcept>
+#include <iostream>
+
 template <typename T>
 class Calculator {
 public:

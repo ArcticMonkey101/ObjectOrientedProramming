@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 #include <cmath>
+#include <iostream>
 
 
 class LogFunctions {

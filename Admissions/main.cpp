@@ -1,4 +1,5 @@
 #include "admissions.h"
+#include <iostream>
 
 int main() {
     std::string name;
@@ -15,10 +16,14 @@ int main() {
     std::cout << "Enter student grade: ";
     std::cin >> grade;
 
-    Student student(name, age, grade);
+    // Dynamically allocate memory for the Student object
+    Student* student = new Student(name, age, grade);
 
     std::cout << "\nStudent Information:\n";
-    student.displayInfo();
+    student->displayInfo();
+
+    // Clean up: delete dynamically allocated objects
+    delete student;
 
     return 0;
 }

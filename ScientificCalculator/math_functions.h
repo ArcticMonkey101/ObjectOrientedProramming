@@ -1,8 +1,9 @@
 #ifndef MATH_FUNCTIONS_H
 #define MATH_FUNCTIONS_H
 
-#include <stdexcept>
+#include <iostream>
 #include <cmath>
+#include <stdexcept>
 
 class MathFunctions {
 public:
