@@ -1,8 +1,10 @@
-#include <iostream>
-#include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
+#include <vector>
+
 #include "racing.h"
+
 
 void displayAllCarInfo(const std::vector<Racing*>& cars) {
     std::cout << "\nCar Information:" << std::endl;

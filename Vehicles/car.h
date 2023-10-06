@@ -3,6 +3,7 @@
 
 #include "Vehicle.h"
 
+
 class Car : public Vehicle {
 private:
     std::string brand;

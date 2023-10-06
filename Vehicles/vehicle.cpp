@@ -1,5 +1,7 @@
-#include "Vehicle.h"
 #include <cassert>
+
+#include "Vehicle.h"
+
 
 Vehicle::Vehicle() {
     speed = 0;
